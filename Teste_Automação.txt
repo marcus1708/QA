@@ -6,22 +6,21 @@ De: Modo que possa logar no sistema apos adicionar o produto no carrinho
 
 ---------------------------------------------------------
 Dado que eu acesso a pagina das casas bahia
-("acesso a URL") do
-    visit 'https://www.casasbahia.com.br/'
+ visit 'https://www.casasbahia.com.br/'
 	
 Quando eu pesquiso o produto Apple iPhone 7
-find('strBusca').set('Apple iPhone 7')
+ find('strBusca').set('Apple iPhone 7')
 
 Quando eu acesso as informaçoes do produto e clico em comprar
-find(src="https://www.casasbahia-imagens.com.br/Control/ArquivoExibir.aspx?IdArquivo=622912719").click
-click_button(class: 'css-12bghb2 e1g7zzz30')
+ find(src="https://www.casasbahia-imagens.com.br/Control/ArquivoExibir.aspx?IdArquivo=622912719").click
+ click_button(class: 'css-12bghb2 e1g7zzz30')
 
 Então o produto é adicionado ao carrinho
-visit 'https://carrinho.casasbahia.com.br/
+ visit 'https://carrinho.casasbahia.com.br/'
 
 ---------------------------------------------------------
 Dado que estou na 2 pagina do carrinho
-visit 'https://carrinho.casasbahia.com.br/'
+ visit 'https://carrinho.casasbahia.com.br/'
 
 Quando que eu clico em Continuar e preencho os dados seguintes
  find('Continuar').click

@@ -1,0 +1,38 @@
+Story User: Adicionar produto no carrinho
+Como: Futuro cliente das Casas Bahia
+Quero: Poder adicionar um produto no carrinho
+De: Modo que possa logar no sistema apos adicionar o produto no carrinho
+
+
+---------------------------------------------------------
+Dado que eu acesso a pagina das casas bahia
+("acesso a URL") do
+    visit 'https://www.casasbahia.com.br/'
+	
+Quando eu pesquiso o produto Apple iPhone 7
+find('strBusca').set('Apple iPhone 7')
+
+Quando eu acesso as informaçoes do produto e clico em comprar
+find(src="https://www.casasbahia-imagens.com.br/Control/ArquivoExibir.aspx?IdArquivo=622912719").click
+click_button(class: 'css-12bghb2 e1g7zzz30')
+
+Então o produto é adicionado ao carrinho
+visit 'https://carrinho.casasbahia.com.br/
+
+---------------------------------------------------------
+Dado que estou na 2 pagina do carrinho
+visit 'https://carrinho.casasbahia.com.br/'
+
+Quando que eu clico em Continuar e preencho os dados seguintes
+ find('Continuar').click
+ #Adicionar 2 unidades
+  click_button(class: 'styledicon__IconButton-sc-10rd490-0 styledicon__IconPlus-sc-10rd490-2 fhYwEU styled__Container-tryvoa-0 iOlaXb')
+ #Calcular cep 86400-000
+  fill_in(id: 'cep', with: '86400-000')
+  find('Calcular').click  
+ #Selecionar qualquer serviço
+  click_button(class: 'class=icon__Icon-sc-1ohnrut-0 bmqUfp styled__Container-tryvoa-0 icvHvF')
+
+Entao Deverá redirecionar para o Checkout/Tela de login
+ click_button(class: 'box__Box-oqpq9y-0 flex__Flex-omp2o9-0 styledtext__Text-sc-1a033ol-0 eBELFl')
+ visit 'https://carrinho.casasbahia.com.br/Checkout'
